@@ -4,8 +4,8 @@
 <meta charset="utf-8">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-    <link rel="shortcut icon" href="favicon.ico">
-    <title><%= @title || "Twenty" %></title>
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <title><%= @title || "读彩" %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %> 
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -18,39 +18,36 @@ for(var i in elems){
 </head>
 <body>
   <div id="wrapper" class="clearfix">
-<header id="head">
-        	<h1><a href="/"><img alt="Project Twenty" title="Project Twenty" src="/assets/logo.png" style="width:150px;" /></a></h1>
-            <nav class="top small">
-            	<ul class="clearfix">
-                	<% if(rand(10)%2==0) %>
-                	<li><a href="/signin">登陆</a></li>
-                    <li class="pipe">|</li>
-                    <li><a href="/signup">注册</a></li>
-                    <% else %>
-                    <li><a href="user/1" title="收藏夹">用户名</a></li>
-                    <li class="pipe">|</li>
-                    <li><a href="/setting">设置</a></li>
-                    <li class="pipe">|</li>
-                    <li><a href="/logout">退出</a></li>
-                    <% end %>
-                </ul>
-            </nav>
-        </header>
-
-<%= yield %>
-
-<footer id="foot" class="small">
-<nav>
-<ul class="clearfix">
-                    <li>&copy;2012 <a href="/blogs">Twenty</a></li>
-                    <li class="pipe">|</li>
-                    <li><a href="#">移动应用</a></li>
-                    <li class="right"><a href="#head">返回顶部</a>&nbsp;&uarr;</li>
-                </ul>
-            <nav>
-            </footer>
+    <header id="head">
+    	<h1><a href="/"><img alt="读彩" title="读彩" src="/assets/logo.png" style="width:120px;" /></a></h1>
+        <nav class="top small">
+        	<ul class="clearfix">
+            	<% if logined? %>
+                <li><a href="/user/<%= current_user.id %>" title="收藏夹"><%= current_user.name %></a></li>
+                <li class="pipe">|</li>
+                <li><a href="/setting">设置</a></li>
+                <li class="pipe">|</li>
+                <li><a href="/logout">退出</a></li>
+                <% else %>
+                <li><a href="/signin">登陆</a></li>
+                <li class="pipe">|</li>
+                <li><a href="/signup">注册</a></li>
+                <% end %>
+            </ul>
+        </nav>
+    </header>
+    <%= yield %>
+    <footer id="foot" class="small">
+        <nav>
+        <ul class="clearfix">
+                <li>&copy;2012 <a href="/blogs">读彩</a></li>
+                <li class="pipe">|</li>
+                <li><a href="/apps">移动应用</a></li>
+                <li class="right"><a href="#head">返回顶部</a>&nbsp;&uarr;</li>
+            </ul>
+        </nav>
+    </footer>
 </div>
- 
 
 </body>
 </html>

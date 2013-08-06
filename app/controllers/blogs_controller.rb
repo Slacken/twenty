@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  skip_before_filter :authorize, :only =>[:index,:show]
   # GET /blogs
   # GET /blogs.json
   def index

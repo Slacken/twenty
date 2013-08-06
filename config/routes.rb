@@ -1,21 +1,44 @@
 Twenty::Application.routes.draw do
+
+  get "apps" => "apps#index"
+
+  get "admin/index"
+
+  
+  controller :users do
+    match 'users' => :index
+    get 'signup' => :new
+    post 'signup' => :create
+    get 'setting' => :edit
+    post 'setting' => :update
+    match 'user/:id' => :show
+  end
+
   resources :blogs
 
-  root :to => 'post#index'
+
+  controller :post do
+    root :to => :index
+    get 'post/:id' => :show, :as => :post
+    get 'post/:id/:act' => :actions
+  end
+
   
-  # get "account/signin"
-  match 'signin' => 'account#signin'
+  controller :sessions do
+    get 'signin' => :new
+    post 'signin' => :create
+    get 'logout' => :destroy
+  end
 
-  # get "account/signup"
-  match 'signup' => 'account#signup'
+  controller :authorize do
+    match "authorize/:act" => :entry
+  end
 
-  # get "account/logout"
-  match 'logout' => 'account#logout'
-
-  # get "account/setting"
-  match 'setting' => 'account#setting'
-  match 'user/:id' => 'account#show'
-  match ':id' => 'post#show'
+  controller :api do
+    match 'api' => :index
+    match 'api/:api/:act' => :entry
+  end
+  # match ':id' => 'post#show'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

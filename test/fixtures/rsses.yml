@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  weight: 9.99
+  home: MyString
+  url: MyString
+
+two:
+  name: MyString
+  weight: 9.99
+  home: MyString
+  url: MyString

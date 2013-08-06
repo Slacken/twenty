@@ -1,0 +1,16 @@
+---
+applications:
+  .:
+    name: twenty
+    framework:
+      name: rails3
+      info:
+        mem: 256M
+        description: Rails Application
+        exec: 
+    url: readcolor.cloudfoundry.com
+    mem: 256M
+    instances: 1
+    services:
+      mysql-readcolor:
+        type: mysql

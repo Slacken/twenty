@@ -1,2 +1,55 @@
-<h1>Post#show</h1>
-<p>Find me in app/views/post/show.html.erb</p>
+        <div id="main">
+            <article>
+              <% if @empty %>
+              <p style="min-height:500px;">不存在该文章哦！</p>
+              <% else %>
+              <header id="title">
+                  <h2><%= @post.title %></h2>
+                  <section>
+                    <time datetime="2012-08-20" pubdate>2012-08-20</time>
+                    <address>
+                      <span class="hidden">『<%= @post.author %>』</span>
+                      <a href="<%= @post.source %>" target="_blank">原文来自：<%= short_url(@post.source) %></a>
+                    </address>
+                  </section>
+              </header>
+                
+              <article id="content" class="clearfix"><%= @post.content.html_safe %></article>
+               <footer>
+                  <div id="action" class="clearfix">
+                          <a href="/post/<%= @post.id %>/dislike" rel="nofollow">反感(<%= @post.dislike %>)</a>
+                          <a href="/post/<%= @post.id %>/next" id="nextpost" data-id="<%= @post.id %>">下一篇</a>
+                          <a href="/post/<%= @post.id %>/like" rel="nofollow">喜欢(<%= @post.like %>)</a>
+                  </div>
+                  <div id="advertise">可用键盘方向键&larr;&rarr;进入上一篇和下一篇</div>
+              </footer>
+              <% end %>
+            </article>
+            <script type="text/javascript">
+              function get_cookie(name){
+                  var values = document.cookie.split("; ");
+                  for(var i in values){
+                      var cookie = values[i];
+                      var p = cookie.indexOf("=");
+                      var key = cookie.substring(0,p);
+                      var value = cookie.substring(p+1);
+                      if(key == name )return value;
+                  }
+                  return false;
+                }
+                $(function(){
+                  $("body").keydown(function(e){
+                      var code = (e.keyCode ? e.keyCode : e.which);
+                  if(code == 39 || code == 76){
+                      var next = document.getElementById('nextpost');
+                      var id = next.getAttribute('data-id');
+                      var pid = get_cookie('pid');
+                      if(id == pid)window.location.href = next.href;
+                      else history.forward();
+                  }else if(code == 37 || code == 72){
+                      history.back();
+                  }
+                });
+              });
+          </script>
+        </div>

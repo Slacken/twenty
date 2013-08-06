@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  weight: 9.99
+  author: MyString
+  source: MyString
+  pubtime: MyString
+  like: 9.99
+  dislike: 9.99
+  neutral: 9.99
+  title: MyString
+  content: MyText
+
+two:
+  user_id: 1
+  weight: 9.99
+  author: MyString
+  source: MyString
+  pubtime: MyString
+  like: 9.99
+  dislike: 9.99
+  neutral: 9.99
+  title: MyString
+  content: MyText

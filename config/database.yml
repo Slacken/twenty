@@ -12,11 +12,11 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: twenty_development
+  database: twentydev
   pool: 5
   username: root
-  password:
-  socket: /var/lib/mysql/mysql.sock
+  password: "111111"
+  socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -25,7 +25,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: twenty_test
+  database: twentydev
   pool: 5
   username: root
   password:
@@ -35,7 +35,7 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: twenty_production
+  database: twentyonrails
   pool: 5
   username: root
   password:

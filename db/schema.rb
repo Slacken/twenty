@@ -11,13 +11,62 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120827094529) do
+ActiveRecord::Schema.define(:version => 20130106185141) do
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "evaluates", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.decimal  "value",      :precision => 10, :scale => 0
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
+
+  create_table "posts", :force => true do |t|
+    t.integer  "user_id"
+    t.decimal  "weight",     :precision => 10, :scale => 0
+    t.string   "author"
+    t.string   "source"
+    t.string   "pubtime"
+    t.decimal  "like",       :precision => 10, :scale => 0
+    t.decimal  "dislike",    :precision => 10, :scale => 0
+    t.decimal  "neutral",    :precision => 10, :scale => 0
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
+
+  create_table "rsses", :force => true do |t|
+    t.string   "name"
+    t.decimal  "weight",     :precision => 10, :scale => 0, :default => 1
+    t.string   "home"
+    t.string   "url",                                                      :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
+  end
+
+  create_table "tokens", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "value"
+    t.decimal  "count",      :precision => 10, :scale => 0
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "hashed_password"
+    t.string   "salt"
+    t.string   "name"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

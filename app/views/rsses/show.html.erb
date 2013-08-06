@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @rss.name %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @rss.weight %>
+</p>
+
+<p>
+  <b>Home:</b>
+  <%= @rss.home %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @rss.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_rss_path(@rss) %> |
+<%= link_to 'Back', rsses_path %>

@@ -1,0 +1,29 @@
+<div id="main">
+    <article>
+        <header><h2>注册读彩</h2></header>
+        <div id="sign" class="clearfix">
+            <article>
+              <!--<div style="margin-right:30px;border-right:1px solid #999;">-->
+                <header><h3>可以直接使用社交账号登录</h3></header>
+                <ul>
+                  <li><a href="#" rel="nofollow"><img src="/assets/renren-login.png" /></a></li>
+                    <li><a href="#" rel="nofollow"><img src="/assets/weibo-login.png" width="234" alt="使用新浪微博账号登录" /></a></li>                         
+                </ul>
+                <!--</div>-->
+            </article>
+            <article>
+                <header><h3>或者现在注册</h3></header>
+                <div class="semiform">
+                  <%= form_tag do %>
+                    
+                    <p class="form-line"><label for="email">电子邮箱&nbsp;</label><input type="email" id="email" name="user[email]" /><span class="error"></span></p>
+                    <p class="form-line"><label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码&nbsp;</label></span><input type="password" id="password" name="user[password]" /><span class="correct"></span></p>
+                    <p class="form-line"><label for="password_confirmation">重复密码&nbsp;</label></span><input type="password" id="password_confirmation" name="user[password_confirmation]" /><span class="correct"></span></p>
+                    <p class="form-line"><button type="submit" name="submitted" value="1">确&nbsp;定</button></p>
+                  <% end %>
+                </div>
+            </article>
+        </div>
+    </article>
+</div>
+

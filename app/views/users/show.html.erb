@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div id="main" style="min-height:500px;">
+    <article class="proper-size">
+        <% if @posts.count>0 %>
+    <h2><%= @user.name %>喜欢的文章</h2>
+    <nav id="article-list">
+        
+        <ul>
+          <!-- 待增加文章摘要 -->
+          <li style="display:none;"><a href="#">宇宙尽头的餐馆</a><span class="tags"><a href="#">小说</a><a href="#">科幻</a></span></li>
+          <% @posts.each do |post| %>
+            
+            <li><a href="<%= post_url(post.id) %>"><%= post.title %></a></li>
+          <% end %>
+        </ul>
+    </nav>
+    <nav class="pagination hidden">这里是分页</nav>
+    <% else %>
+    <p><strong>还没有文章哦！</strong></p>
+    <% end %>
+        
+    </article>
+    <section class="small hidden">
+        <nav id="neibors">
+            <ul class="clearfix">
+              <li style="font-weight:bold;">[<%= @user.name %>的邻居]</li>
+                <li><a href="#">宇宙尽头的餐馆</a></li>
+                <li><a href="#">xinkiang</a></li>
+                <li><a href="#">城主</a></li>
+            </ul>
+        </nav>
+    </section>
+</div>
+
